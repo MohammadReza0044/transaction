@@ -38,11 +38,22 @@ class customUserManager(BaseUserManager):
 
 
 class user (AbstractUser):
+
+    branch_1000 = 'branch_1000'
+    branch_1001 = 'branch_1001'
+    branch_1002 = 'branch_1002'
+
+    BRANCH_CHOICES = [
+        (branch_1000, 'branch_1000'),
+        (branch_1001, 'branch_1001'),
+        (branch_1002, 'branch_1002'),
+    ]
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(max_length=100, unique=True)
+    branch_code = models.CharField(max_length=50, choices=BRANCH_CHOICES, default= branch_1000)
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['username', 'branch_code']
 
     def __str__(self):
         return f"<user {self.email}"
