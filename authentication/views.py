@@ -26,3 +26,6 @@ class usersList(APIView):
         serializer = userSerializer(users , many=True)
         return Response (serializer.data)
 
+
+
+

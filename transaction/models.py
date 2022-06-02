@@ -16,3 +16,4 @@ class transaction(models.Model):
     branch_code = models.CharField(max_length=20 , choices=BRANCH_CHOICES)
     transaction= models.IntegerField()
     created_time = models.DateTimeField(auto_now= True)
+
